@@ -7,10 +7,11 @@
     (loop [elements  file-content
            tentative (first elements)]
       (let [second-portion    (first (filter #(= (+ tentative %) 2020) elements))
-            filtered-elements (remove #{tentative} elements)
             match-condition?  (boolean second-portion)]
         (if match-condition?
           (* tentative second-portion)
-          (recur filtered-elements (first filtered-elements)))))))
+          (do (let [filtered-elements (remove #{tentative} elements)
+                    next-tentative (first filtered-elements)]
+               (recur filtered-elements next-tentative))))))))
 
-(find-the-two-entries-that-results-in-2020 "resources/day_1.input")
+(time (find-the-two-entries-that-results-in-2020 "resources/day_1.input"))
