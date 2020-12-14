@@ -4,4 +4,4 @@
 
 (deftest find-the-two-entries-that-sums-2020
   (testing "Should return "
-    (is (= day-1/find-the-two-entries-that-sums-2020 514579))))
+    (is (= day-1/find-the-two-entries-that-results-in-2020 514579))))
